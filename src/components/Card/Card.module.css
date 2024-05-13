@@ -1,0 +1,20 @@
+.wrapper {
+  max-width: 350px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  margin-top: 90px;
+  text-align: center;
+  padding-block: 25px;
+  position: relative;
+}
+
+.img {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
