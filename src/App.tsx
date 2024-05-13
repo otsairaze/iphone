@@ -4,7 +4,7 @@ import Ad from "./components/Ad/Ad";
 import Card from "./components/Card/Card";
 import axios from "axios";
 import React, { useEffect } from "react";
-import { useAppDispatch } from "./store/hooks";
+import { useAppDispatch, useAppSelector } from "./store/hooks";
 import { addProducts } from "./store/reducers/products";
 
 type ICard = {
@@ -14,14 +14,13 @@ type ICard = {
 };
 
 function App() {
-  const [items, setItems] = React.useState([]);
   const dispatch = useAppDispatch();
+  const products = useAppSelector((state) => state.products.value);
 
   useEffect(() => {
     axios
       .get("https://65c3afef39055e7482c16929.mockapi.io/Item")
       .then((response) => {
-        setItems(response.data);
         dispatch(addProducts(response.data));
       })
       .catch((error) => {
@@ -35,7 +34,7 @@ function App() {
         <Header />
         <Ad />
         <div className="inner">
-          {items.map((obj) => (
+          {products.map((obj) => (
             <>
               <Card
                 key={obj.id}

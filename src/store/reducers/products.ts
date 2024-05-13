@@ -10,7 +10,6 @@ const productsSlice = createSlice({
   reducers: {
     addProducts(state, action) {
       state.value = action.payload;
-      console.log(state.value);
     },
     setLike(state, action) {
       const getItem = action.payload;
@@ -18,7 +17,6 @@ const productsSlice = createSlice({
       if (exist) {
         exist.like = getItem.like;
       }
-      console.log(exist.like);
     },
   },
 });

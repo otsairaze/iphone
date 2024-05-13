@@ -12,8 +12,8 @@ type ICard = {
 };
 
 const Card: FC<ICard> = ({ imageUrl, title, onActive, id }) => {
-  const getItem = useAppSelector((state) => state.products.value).find(
-    (item) => item.id === id
+  const getItem = useAppSelector((state) =>
+    state.products.value.find((item) => item.id === id && item.like)
   );
 
   const [active, setActive] = useState(false);
@@ -26,18 +26,16 @@ const Card: FC<ICard> = ({ imageUrl, title, onActive, id }) => {
         <button className={styles.img}>
           <img
             onClick={() => {
-              setActive(!active);
+              setActive((active) => !active);
               dispatch(
                 setLike({
                   id: id,
-                  like: active,
+                  like: !active,
                 })
               );
             }}
             src={
-              active
-                ? "../../../public/Product/like.png"
-                : "../../../public/Product/unlike.png"
+              getItem ? "public/Product/like.png" : "public/Product/unlike.png"
             }
             alt=""
           />
