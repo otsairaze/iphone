@@ -18,3 +18,17 @@
   background: none;
   border: none;
 }
+
+.btn {
+  background-color: #101010;
+  color: #fff;
+  padding-block: 20px;
+  padding-inline: 30px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+
+  &__active {
+    background-color: rgb(92, 92, 248);
+  }
+}

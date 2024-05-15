@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../../public/Header/logo.png";
 import like from "../../../public/Header/like.png";
@@ -11,6 +11,10 @@ const Header = () => {
       (count, item) => (item.like ? count + 1 : count),
       0
     )
+  );
+
+  const basket = useAppSelector((state) =>
+    state.cart.value.reduce((count, item) => (item ? count + 1 : count), 0)
   );
 
   return (
@@ -26,6 +30,9 @@ const Header = () => {
       <div className={styles.icon}>
         <div className={styles.count}>
           <span>{count}</span>
+        </div>
+        <div className={styles.cart}>
+          <span>{basket}</span>
         </div>
         <img src={like} alt="" />
         <img src={cart} alt="" />
