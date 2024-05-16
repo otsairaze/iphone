@@ -9,7 +9,6 @@ type ICard = {
   id: number;
   imageUrl: string;
   title: string;
-  likeUrl: string;
   active: boolean;
 };
 

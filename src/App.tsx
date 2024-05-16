@@ -7,12 +7,6 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
 import { addProducts } from "./store/reducers/products";
 
-type ICard = {
-  imageUrl: string;
-  title: string;
-  likeUrl: string;
-};
-
 function App() {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products.value);
@@ -41,7 +35,7 @@ function App() {
                 id={obj.id}
                 imageUrl={obj.imageUrl}
                 title={obj.title}
-                likeUrl={obj.likeUrl}
+                active={obj.active}
               />
             </>
           ))}
